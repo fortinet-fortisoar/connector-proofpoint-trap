@@ -1,0 +1,233 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "uuid": "b662b8dc-5f41-418f-ba0a-5b39bb2efc10",
+      "@type": "WorkflowCollection",
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "uuid": "567d498f-67a7-4e22-a528-e2afeeba627a",
+          "collection": "/api/3/workflow_collections/b662b8dc-5f41-418f-ba0a-5b39bb2efc10",
+          "steps": [
+            {
+              "uuid": "e12bcf34-fb47-4f21-b714-b51a63df8955",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "5c063160-2559-4921-abf3-48dd1d6cdc75",
+              "@type": "WorkflowStep",
+              "name": "Create Alert from JSON Source",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Proofpoint TRAP",
+                "config": "",
+                "params": {
+                  "alertSourceID": "",
+                  "data": ""
+                },
+                "version": "1.0.0",
+                "connector": "proofpoint-trap",
+                "operation": "create_alert_from_json_source",
+                "operationTitle": "Create Alert from JSON Source"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Creates ProofPoint Alert based on Alert Source ID and other parameters provided",
+          "name": "Create Alert from JSON Source",
+          "tag": "#Proofpoint TRAP",
+          "recordTags": [
+            "Proofpoint",
+            "proofpoint-trap"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/e12bcf34-fb47-4f21-b714-b51a63df8955",
+          "routes": [
+            {
+              "uuid": "6ca70509-1126-4f5b-a4bc-decb71c53256",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Create Alert from JSON Source",
+              "sourceStep": "/api/3/workflow_steps/e12bcf34-fb47-4f21-b714-b51a63df8955",
+              "targetStep": "/api/3/workflow_steps/5c063160-2559-4921-abf3-48dd1d6cdc75"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "283f6674-2045-466a-b5a6-65fb2eb9043e",
+          "collection": "/api/3/workflow_collections/b662b8dc-5f41-418f-ba0a-5b39bb2efc10",
+          "steps": [
+            {
+              "uuid": "6e2aa4c0-d05e-4bba-b901-6ab26f6b4115",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "191cf1ab-8bd7-4840-b73f-76be282c216c",
+              "@type": "WorkflowStep",
+              "name": "Get Incident Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Proofpoint TRAP",
+                "config": "",
+                "params": {
+                  "incidentID": ""
+                },
+                "version": "1.0.0",
+                "connector": "proofpoint-trap",
+                "operation": "get_incident_details",
+                "operationTitle": "Get Incident Details"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieves incident details based on the incident ID and other parameters provided",
+          "name": "Get Incident Details",
+          "tag": "#Proofpoint TRAP",
+          "recordTags": [
+            "Proofpoint",
+            "proofpoint-trap"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/6e2aa4c0-d05e-4bba-b901-6ab26f6b4115",
+          "routes": [
+            {
+              "uuid": "3199d570-2895-4b17-8e8a-bc4b9fa28b18",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Incident Details",
+              "sourceStep": "/api/3/workflow_steps/6e2aa4c0-d05e-4bba-b901-6ab26f6b4115",
+              "targetStep": "/api/3/workflow_steps/191cf1ab-8bd7-4840-b73f-76be282c216c"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "b68087a8-3f5b-4fa9-89a0-8e60b47c1fc1",
+          "collection": "/api/3/workflow_collections/b662b8dc-5f41-418f-ba0a-5b39bb2efc10",
+          "steps": [
+            {
+              "uuid": "1e66c07f-f776-441e-be2a-9d343425ad42",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "9a0ca6d4-1950-4641-be8b-360960347cdc",
+              "@type": "WorkflowStep",
+              "name": "Get Incidents",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Proofpoint TRAP",
+                "config": "",
+                "params": {
+                  "state": "closed",
+                  "createdAfterDate": "",
+                  "createdBeforeDate": "",
+                  "closedAfterDate": "",
+                  "cclosedBeforeDate": ""
+                },
+                "version": "1.0.0",
+                "connector": "proofpoint-trap",
+                "operation": "get_incidents",
+                "operationTitle": "Get Incidents"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieves All Incident details based on the parameters provided",
+          "name": "Get Incidents",
+          "tag": "#Proofpoint TRAP",
+          "recordTags": [
+            "Proofpoint",
+            "proofpoint-trap"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/1e66c07f-f776-441e-be2a-9d343425ad42",
+          "routes": [
+            {
+              "uuid": "29841e36-5a84-4cf5-97be-4af3102baa51",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Incidents",
+              "sourceStep": "/api/3/workflow_steps/1e66c07f-f776-441e-be2a-9d343425ad42",
+              "targetStep": "/api/3/workflow_steps/9a0ca6d4-1950-4641-be8b-360960347cdc"
+            }
+          ]
+        }
+      ],
+      "name": "Sample - Proofpoint TRAP - 1.0.0",
+      "description": "Perform actions like Get incident details, Retrieve incidents, Update Incident, Add incident comments, Add user to incident, Update Incident Description, Update Incident Description, Close Incident, and Create Alert from JSON source using Proofpoint TRAP",
+      "visible": true,
+      "recordTags": [
+        "Proofpoint",
+        "proofpoint-trap"
+      ]
+    }
+  ]
+}
