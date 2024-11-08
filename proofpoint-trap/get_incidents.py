@@ -12,9 +12,10 @@ logger = get_logger(LOGGER_NAME)
 
 
 def get_incidents(config, params):
-    state = params.get('state')
+    state : str= params.get('state')
     if not state:
         raise ConnectorError('Missing required parameters state')
+    state = state.lower()
     createdAfterDate = params.get('createdAfterDate')
     createdBeforeDate = params.get('createdBeforeDate')
     closedAfterDate = params.get('closedAfterDate')

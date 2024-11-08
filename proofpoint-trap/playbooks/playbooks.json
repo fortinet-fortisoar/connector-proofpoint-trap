@@ -195,7 +195,7 @@
             }
           ],
           "triggerLimit": null,
-          "description": "Retrieves All Incident details based on the parameters provided",
+          "description": "Retrieves all Incident details based on the parameters provided",
           "name": "Get Incidents",
           "tag": "#Proofpoint TRAP",
           "recordTags": [

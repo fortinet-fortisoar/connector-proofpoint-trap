@@ -4,8 +4,8 @@
   "label": "Proofpoint TRAP",
   "description": "Perform actions like Get incident details, Retrieve incidents, Update Incident, Add incident comments, Add user to incident, Update Incident Description, Update Incident Description, Close Incident, and Create Alert from JSON source using Proofpoint TRAP",
   "publisher": "Fortinet",
-  "icon_small_name": "Safeimagekit-resized-img.png",
-  "icon_large_name": "Safeimagekit-resized-img.png",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
   "help_online": "https://github.com/fortinet-fortisoar/connector-proofpoint-trap/blob/release/1.0.0/docs/ProofpointTRAP.md",
   "cs_approved": false,
   "cs_compatible": true,
@@ -121,7 +121,7 @@
     {
       "operation": "get_incidents",
       "title": "Get Incidents",
-      "description": "Retrieves All Incident details based on the parameters provided",
+      "description": "Retrieves all Incident details based on the parameters provided",
       "category": "investigation",
       "annotation": "get_incidents",
       "output_schema": {
@@ -137,15 +137,15 @@
           "required": true,
           "visible": true,
           "editable": true,
-          "value": "closed",
+          "value": "Closed",
           "tooltip": "Select state of the incident",
           "description": "Select state of the incident",
           "options": [
-            "new",
-            "open",
-            "assigned",
-            "closed",
-            "ignored"
+            "New",
+            "Open",
+            "Assigned",
+            "Closed",
+            "Ignored"
           ]
         },
         {

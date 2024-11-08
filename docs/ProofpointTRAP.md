@@ -37,7 +37,7 @@ For the procedure to configure a connector, click [here](https://docs.fortinet.c
 The following automated operations can be included in playbooks and you can also use the annotations to access operations from FortiSOAR&trade; release 4.10.0 and onwards:
 <table border=1><thead><tr><th>Function</th><th>Description</th><th>Annotation and Category</th></tr></thead><tbody><tr><td>Create Alert from JSON Source</td><td>Creates ProofPoint Alert based on Alert Source ID and other parameters provided</td><td>create_alert_from_json_source <br/>Investigation</td></tr>
 <tr><td>Get Incident Details</td><td>Retrieves incident details based on the incident ID and other parameters provided</td><td>get_incident_details <br/>Investigation</td></tr>
-<tr><td>Get Incidents</td><td>Retrieves All Incident details based on the parameters provided</td><td>get_incidents <br/>Investigation</td></tr>
+<tr><td>Get Incidents</td><td>Retrieves all Incident details based on the parameters provided</td><td>get_incidents <br/>Investigation</td></tr>
 </tbody></table>
 
 ### operation: Create Alert from JSON Source
