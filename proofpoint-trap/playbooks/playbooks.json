@@ -219,10 +219,82 @@
               "targetStep": "/api/3/workflow_steps/9a0ca6d4-1950-4641-be8b-360960347cdc"
             }
           ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "fa992029-137e-4bc8-8b46-ba2fa57a1c66",
+          "collection": "/api/3/workflow_collections/4f7108b3-25bf-45fa-89f4-d3e780102c57",
+          "steps": [
+            {
+              "uuid": "02d58b15-62c8-4207-aaff-49878c2a0973",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "c469dcfc-9bb1-4266-9cc1-f8d80113a7a1",
+              "@type": "WorkflowStep",
+              "name": "Close Incidents",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Proofpoint TRAP",
+                "config": "",
+                "params": {
+                  "incidentIDs": "",
+                  "closeSummary": "",
+                  "closeDetail": ""
+                },
+                "version": "1.1.0",
+                "connector": "proofpoint-trap",
+                "operation": "close_incidents",
+                "operationTitle": "Close Incidents"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Closes the Incident on the basis of given TRAP incident IDs",
+          "name": "Close Incidents",
+          "tag": "#Proofpoint TRAP",
+          "recordTags": [
+            "Proofpoint",
+            "proofpoint-trap"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/02d58b15-62c8-4207-aaff-49878c2a0973",
+          "routes": [
+            {
+              "uuid": "171f10fe-3018-43bd-9ce1-c944906a2ad7",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Close Incidents",
+              "sourceStep": "/api/3/workflow_steps/02d58b15-62c8-4207-aaff-49878c2a0973",
+              "targetStep": "/api/3/workflow_steps/c469dcfc-9bb1-4266-9cc1-f8d80113a7a1"
+            }
+          ]
         }
       ],
-      "name": "Sample - Proofpoint TRAP - 1.0.0",
-      "description": "Perform actions like Get incident details, Retrieve incidents, Update Incident, Add incident comments, Add user to incident, Update Incident Description, Update Incident Description, Close Incident, and Create Alert from JSON source using Proofpoint TRAP",
+      "name": "Sample - Proofpoint TRAP - 1.1.0",
+      "description": "Perform actions like Get incident details, Retrieve incidents, Close Incidents and Create Alert from JSON source using Proofpoint TRAP",
       "visible": true,
       "recordTags": [
         "Proofpoint",
