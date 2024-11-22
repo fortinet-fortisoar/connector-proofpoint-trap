@@ -13,9 +13,13 @@ Certified: No
 ## Release Notes for version 1.1.0
 Following enhancements have been made to the Proofpoint TRAP Connector in version 1.1.0:
 <ul>
-<li>New action: Close Incidents </li>
-<li>Debug logs added. </li>
-<li>Internal logic is changed for function Get Incidents.</li>
+<li>New action: Close Incidents</li>
+<li>Updated Get Incidents action</li>
+<li>In Get Incidents action:</li>
+<ul>
+<li>Removed Closed After Date and Cclosed Before Date parameter</li>
+<li>Added Close Summary and Email Message ID parameter</li>
+</ul>
 </ul>
 
 ## Installing the connector
