@@ -24,8 +24,8 @@ def invoke_rest_endpoint(config, endpoint, method='GET', data=None, headers=None
     try:
         response = requests.request(method, url, verify=verify_ssl,
                                     data=json.dumps(data), headers=headers)
-        logger.error('RESPONSE STATUS CODE = {}'.format(str(response.status_code)))
-        logger.error('RESPONSE STATUS TEXT = {}'.format(str(response.text)))
+        logger.debug('RESPONSE STATUS CODE = {}'.format(str(response.status_code)))
+        logger.debug('RESPONSE STATUS TEXT = {}'.format(str(response.text)))
     except Exception as e:
         logger.exception('Error invoking endpoint: {0}'.format(endpoint))
         raise ConnectorError('Error: {0}'.format(str(e)))

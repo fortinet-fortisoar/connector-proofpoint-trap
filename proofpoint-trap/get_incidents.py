@@ -12,6 +12,7 @@ logger = get_logger(LOGGER_NAME)
 
 def get_incidents(config, params):
     state = params.get('state')
+    state = state.lower()
     createdAfterDate = params.get('createdAfterDate')
     createdBeforeDate = params.get('createdBeforeDate')
     emailMessageID = params.get('emailMessageID')
