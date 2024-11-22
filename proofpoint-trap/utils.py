@@ -19,18 +19,33 @@ def invoke_rest_endpoint(config, endpoint, method='GET', data=None, headers=None
     verify_ssl = config.get('verify_ssl', True)
     if not server_address or not apiToken:
         raise ConnectorError('Missing required parameters')
-    headers = {'accept': 'application/json', 'Authorization': apiToken}
-    url = '{server_address}{endpoint}'.format(server_address=server_address,endpoint=endpoint)
+    headers = {'Content-type': 'application/json', 'accept': 'application/json', 'Authorization': apiToken}
+    url = '{server_address}{endpoint}'.format(server_address=server_address, endpoint=endpoint)
     try:
         response = requests.request(method, url, verify=verify_ssl,
                                     data=json.dumps(data), headers=headers)
         logger.debug('RESPONSE STATUS CODE = {}'.format(str(response.status_code)))
+        logger.debug('RESPONSE STATUS TEXT = {}'.format(str(response.text)))
     except Exception as e:
         logger.exception('Error invoking endpoint: {0}'.format(endpoint))
         raise ConnectorError('Error: {0}'.format(str(e)))
-        
+
+    if response.status_code == 200 or response.status_code == 201 or response.status_code == 202:
+        if response.ok and response.text:
+            return response.json()
+        elif response.text:
+            return {"status": response.text}
+        else:
+            return {"status": "success"}
+    else:
+        logger.error(response.content)
+        raise ConnectorError(response.content)
+
+        logger.exception('Error invoking endpoint: {0}'.format(endpoint))
+        raise ConnectorError('Error: {0}'.format(str(e)))
+
     if response.status_code == 202:
-        return {"status" : "success"}
+        return {"status": "success"}
     elif response.ok:
         return response.json()
     else:

@@ -1,15 +1,20 @@
 {
   "name": "proofpoint-trap",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "label": "Proofpoint TRAP",
-  "description": "Perform actions like Get incident details, Retrieve incidents, Update Incident, Add incident comments, Add user to incident, Update Incident Description, Update Incident Description, Close Incident, and Create Alert from JSON source using Proofpoint TRAP",
+  "description": "Perform actions like Get incident details, Retrieve incidents, Close Incidents and Create Alert from JSON source using Proofpoint TRAP",
   "publisher": "Fortinet",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
-  "help_online": "https://github.com/fortinet-fortisoar/connector-proofpoint-trap/blob/release/1.0.0/docs/ProofpointTRAP.md",
+  "help_online": "https://github.com/fortinet-fortisoar/connector-proofpoint-trap/blob/release/1.1.0/docs/ProofpointTRAP.md",
   "cs_approved": false,
   "cs_compatible": true,
-  "category": "Case Management",
+  "category": [
+    "Investigation",
+    "Alert Management",
+    "Case Management",
+    "Threat Intelligence"
+  ],
   "configuration": {
     "fields": [
       {
@@ -169,24 +174,55 @@
           "description": "Retrieve incidents that were created before specified date, in ISO 8601 format (UTC)"
         },
         {
-          "title": "Closed After Date",
-          "type": "datetime",
-          "name": "closedAfterDate",
+          "title": "Email Message ID",
+          "type": "text",
+          "name": "emailMessageID",
           "required": false,
           "visible": true,
           "editable": true,
-          "tooltip": "Retrieve incidents that were closed after specified date, in ISO 8601 format (UTC)",
-          "description": "Retrieve incidents that were closed after specified date, in ISO 8601 format (UTC)"
+          "tooltip": "Specify comma separated value of multiple message-ids.",
+          "description": "Specify comma separated value of multiple message-ids."
+        }
+      ]
+    },
+    {
+      "operation": "close_incidents",
+      "title": "Close Incidents",
+      "description": "Closes the Incident on the basis of given TRAP incident IDs",
+      "category": "investigation",
+      "annotation": "close_incidents",
+      "output_schema": {},
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Incident IDs",
+          "type": "text",
+          "name": "incidentIDs",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the comma separated values of Incidents IDs which you want to Close",
+          "description": "Specify the comma separated values of Incidents IDs which you want to Close"
         },
         {
-          "title": "Cclosed Before Date",
-          "type": "datetime",
-          "name": "cclosedBeforeDate",
-          "required": false,
+          "title": "Close Summary",
+          "type": "text",
+          "name": "closeSummary",
+          "required": true,
           "visible": true,
           "editable": true,
-          "tooltip": "Retrieve incidents that were closed before specified date, in ISO 8601 format (UTC)",
-          "description": "Retrieve incidents that were closed before specified date, in ISO 8601 format (UTC)"
+          "tooltip": "Specify the Closing summary to be placed into each closed incident.",
+          "description": "Specify the Closing summary to be placed into each closed incident."
+        },
+        {
+          "title": "Close Detail",
+          "type": "textarea",
+          "name": "closeDetail",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the Closing details to be placed into each closed incident.",
+          "description": "Specify the Closing details to be placed into each closed incident."
         }
       ]
     }
