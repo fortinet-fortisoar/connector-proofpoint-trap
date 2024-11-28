@@ -12,7 +12,7 @@ from .constants import LOGGER_NAME
 logger = get_logger(LOGGER_NAME)
 
 
-def invoke_rest_endpoint(config, endpoint, method='GET', data=None, headers=None):
+def invoke_rest_endpoint(config, endpoint, method='GET', data=None, headers=None,params=None):
     server_address = config.get('server_address')
     port = config.get('port', '443')
     apiToken = config.get('aPIToken')
@@ -23,7 +23,7 @@ def invoke_rest_endpoint(config, endpoint, method='GET', data=None, headers=None
     url = '{server_address}{endpoint}'.format(server_address=server_address, endpoint=endpoint)
     try:
         response = requests.request(method, url, verify=verify_ssl,
-                                    data=json.dumps(data), headers=headers)
+                                    data=json.dumps(data), headers=headers,params=params)
         logger.debug('RESPONSE STATUS CODE = {}'.format(str(response.status_code)))
         logger.debug('RESPONSE STATUS TEXT = {}'.format(str(response.text)))
     except Exception as e:

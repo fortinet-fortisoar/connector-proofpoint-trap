@@ -225,6 +225,65 @@
           "description": "Specify the Closing details to be placed into each closed incident."
         }
       ]
+    },
+    {
+      "operation": "execute_api_request",
+      "title": "Execute an API Request",
+      "annotation": "execute_api_request",
+      "description": "Sends an API request to any API endpoint based on specified HTTP method, endpoint, and other input parameters that you have specified, enabling flexible API interactions tailored to user needs. ",
+      "category": "investigation",
+      "visible": true,
+      "enabled": true,
+      "parameters": [
+        {
+          "name": "method",
+          "title": "HTTP Method",
+          "type": "select",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "tooltip": "Select an HTTP action for the request. You can select from the following options:  \n\nDELETE \n\nGET \n\nPATCH \n\nPOST \n\nPUT ",
+          "description": "Select an HTTP action for the request. You can select from the following options:  \n\nDELETE \n\nGET \n\nPATCH \n\nPOST \n\nPUT ",
+          "options": [
+            "DELETE",
+            "GET",
+            "PATCH",
+            "POST",
+            "PUT"
+          ]
+        },
+        {
+          "title": "Endpoint",
+          "name": "endpoint",
+          "tooltip": "Specify the target endpoint for the request like /api/incidents/",
+          "description": "Specify the target endpoint for the request like /api/incidents/",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true
+        },
+        {
+          "title": "Query Parameters",
+          "name": "query_params",
+          "description": "(Optional) Specify any optional parameters to add to the URL and refine the request.",
+          "tooltip": "(Optional) Specify any optional parameters to add to the URL and refine the request.",
+          "type": "json",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "name": "payload",
+          "title": "Request Payload",
+          "type": "json",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "tooltip": "(Optional) Specify data, as JSON, to be sent as the request payload (typically for POST or PUT requests). ",
+          "description": "(Optional) Specify data, as JSON, to be sent as the request payload (typically for POST or PUT requests). "
+        }
+      ],
+      "output_schema": {}
     }
   ]
 }
