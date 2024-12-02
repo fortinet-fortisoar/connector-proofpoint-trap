@@ -13,7 +13,7 @@ Certified: No
 ## Release Notes for version 1.1.0
 Following enhancements have been made to the Proofpoint TRAP Connector in version 1.1.0:
 <ul>
-<li>New action: Close Incidents, Execute API Request </li>
+<li>New action: Close Incidents, Execute an API Request </li>
 <li>Updated Get Incidents action</li>
 <li><p>In Get Incidents action: </p>
 
