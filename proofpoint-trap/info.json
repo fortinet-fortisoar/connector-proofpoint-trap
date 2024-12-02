@@ -10,8 +10,6 @@
   "cs_approved": false,
   "cs_compatible": true,
   "category": [
-    "Investigation",
-    "Alert Management",
     "Case Management",
     "Threat Intelligence"
   ],
