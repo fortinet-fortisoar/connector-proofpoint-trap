@@ -13,13 +13,14 @@ Certified: No
 ## Release Notes for version 1.1.0
 Following enhancements have been made to the Proofpoint TRAP Connector in version 1.1.0:
 <ul>
-<li>New action: Close Incidents</li>
+<li>New action: Close Incidents, Execute an API Request </li>
 <li>Updated Get Incidents action</li>
-<li>In Get Incidents action:</li>
+<li><p>In Get Incidents action: </p>
+
 <ul>
 <li>Removed Closed After Date and Cclosed Before Date parameter</li>
 <li>Added Close Summary and Email Message ID parameter</li>
-</ul>
+</ul></li>
 </ul>
 
 ## Installing the connector
@@ -50,6 +51,7 @@ The following automated operations can be included in playbooks and you can also
 <tr><td>Get Incident Details</td><td>Retrieves incident details based on the incident ID and other parameters provided</td><td>get_incident_details <br/>Investigation</td></tr>
 <tr><td>Get Incidents</td><td>Retrieves all Incident details based on the parameters provided</td><td>get_incidents <br/>Investigation</td></tr>
 <tr><td>Close Incidents</td><td>Closes the Incident on the basis of given TRAP incident IDs</td><td>close_incidents <br/>Investigation</td></tr>
+<tr><td>Execute an API Request</td><td>Sends an API request to any API endpoint based on specified HTTP method, endpoint, and other input parameters that you have specified, enabling flexible API interactions tailored to user needs. </td><td>execute_api_request <br/>Investigation</td></tr>
 </tbody></table>
 
 ### operation: Create Alert from JSON Source
@@ -120,11 +122,34 @@ The output contains the following populated JSON schema:
 #### Output
 
  The output contains a non-dictionary value.
+
+### operation: Execute an API Request
+#### Input parameters
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>HTTP Method</td><td>Select an HTTP action for the request. You can select from the following options:  
+
+DELETE 
+
+GET 
+
+PATCH 
+
+POST 
+
+PUT 
+</td></tr><tr><td>Endpoint</td><td>Specify the target endpoint for the request like /api/incidents/
+</td></tr><tr><td>Query Parameters</td><td>(Optional) Specify any optional parameters to add to the URL and refine the request.
+</td></tr><tr><td>Request Payload</td><td>(Optional) Specify data, as JSON, to be sent as the request payload (typically for POST or PUT requests). 
+</td></tr></tbody></table>
+
+#### Output
+
+ The output contains a non-dictionary value.
 ## Included playbooks
 The `Sample - proofpoint-trap - 1.1.0` playbook collection comes bundled with the Proofpoint TRAP connector. These playbooks contain steps using which you can perform all supported actions. You can see bundled playbooks in the **Automation** > **Playbooks** section in FortiSOAR&trade; after importing the Proofpoint TRAP connector.
 
 - Close Incidents
 - Create Alert from JSON Source
+- Execute an API Request
 - Get Incident Details
 - Get Incidents
 

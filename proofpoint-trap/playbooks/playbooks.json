@@ -40,7 +40,7 @@
                   "alertSourceID": "",
                   "data": ""
                 },
-                "version": "1.0.0",
+                "version": "1.1.0",
                 "connector": "proofpoint-trap",
                 "operation": "create_alert_from_json_source",
                 "operationTitle": "Create Alert from JSON Source"
@@ -110,7 +110,7 @@
                 "params": {
                   "incidentID": ""
                 },
-                "version": "1.0.0",
+                "version": "1.1.0",
                 "connector": "proofpoint-trap",
                 "operation": "get_incident_details",
                 "operationTitle": "Get Incident Details"
@@ -184,7 +184,7 @@
                   "closedAfterDate": "",
                   "cclosedBeforeDate": ""
                 },
-                "version": "1.0.0",
+                "version": "1.1.0",
                 "connector": "proofpoint-trap",
                 "operation": "get_incidents",
                 "operationTitle": "Get Incidents"
@@ -289,6 +289,79 @@
               "name": "Start-> Close Incidents",
               "sourceStep": "/api/3/workflow_steps/02d58b15-62c8-4207-aaff-49878c2a0973",
               "targetStep": "/api/3/workflow_steps/c469dcfc-9bb1-4266-9cc1-f8d80113a7a1"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "662ce71f-4921-4b94-8754-5a33383b8cb1",
+          "collection": "/api/3/workflow_collections/a3dd1df5-04ac-4372-82bc-47f11ff65172",
+          "steps": [
+            {
+              "uuid": "78574e9d-0d48-4c02-a946-c2ff8a19c6ef",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "031075e6-4a43-43b8-962b-2b0338f1bf5c",
+              "@type": "WorkflowStep",
+              "name": "Execute an API Request",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Proofpoint TRAP",
+                "config": "",
+                "params": {
+                  "method": "",
+                  "endpoint": "",
+                  "query_params": "",
+                  "payload": ""
+                },
+                "version": "1.1.0",
+                "connector": "proofpoint-trap",
+                "operation": "execute_api_request",
+                "operationTitle": "Execute an API Request"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Sends an API request to any API endpoint based on specified HTTP method, endpoint, and other input parameters that you have specified, enabling flexible API interactions tailored to user needs. ",
+          "name": "Execute an API Request",
+          "tag": "#Proofpoint TRAP",
+          "recordTags": [
+            "Proofpoint",
+            "proofpoint-trap"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/78574e9d-0d48-4c02-a946-c2ff8a19c6ef",
+          "routes": [
+            {
+              "uuid": "1dddc2bb-cfd0-46fb-ab81-a57b5bfe9cf1",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Execute an API Request",
+              "sourceStep": "/api/3/workflow_steps/78574e9d-0d48-4c02-a946-c2ff8a19c6ef",
+              "targetStep": "/api/3/workflow_steps/031075e6-4a43-43b8-962b-2b0338f1bf5c"
             }
           ]
         }
